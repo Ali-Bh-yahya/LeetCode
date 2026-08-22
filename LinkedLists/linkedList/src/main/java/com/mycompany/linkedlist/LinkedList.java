@@ -23,5 +23,8 @@ public class LinkedList {
         //Add the item to the first of the linkedList :
         linkedList.addFirst(101);
         System.out.println(linkedList);
+        //Add the item by the index :
+        linkedList.add(2, 99);
+        System.out.println(linkedList);
     }
 }

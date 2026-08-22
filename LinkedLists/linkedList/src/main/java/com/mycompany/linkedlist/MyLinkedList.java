@@ -80,13 +80,48 @@ public class MyLinkedList<T> {
             Node<T> node = new Node<>(val);
             Node<T> currunt = head;
             
-            for( int i = 0 ; i < index-1 ; i++)
-                currunt = currunt.next; // 1 c=0- c-> 1 2- c=1 c-> 2 
+            for( int i = 0 ; i < index-1 ; i++)  
+                currunt = currunt.next; 
             node.next =currunt.next;
             currunt.next = node;
             size++;
+        }   
+    }
+    
+    //get first method:
+    public T getFirst(){
+        if(head == null){
+            throw new ArrayIndexOutOfBoundsException("Invalid head ");
         }
-            
+        return head.data;
+    }
+    //get last method:
+    public T getLast(){
+        if(tail == null){
+            throw new ArrayIndexOutOfBoundsException("Invalid tail ");
+        }
+        return tail.data;
+    }
+    
+    //get by the index method:
+    public T get(int index){
+        if(index < 0 || index > size){
+            throw new ArrayIndexOutOfBoundsException("Invalid index: " + index + ", Size: " + size);
+        }
+        if(index == 0){
+            getFirst();
+        }
+        else if (index == size){
+            getLast();// index =3
+        }
+        else{
+            Node<T> currunt = head ; 
+            for(int i = 0 ; i < index ; i++ ){
+                currunt = currunt.next;
+            }// i = 0 (10) -> 20 i = 1 (20) -> 30  i = 2 (30) -> 40 // currunt = 40 [3]
+            return currunt.data;
+        }
+    
     }
     
 }
